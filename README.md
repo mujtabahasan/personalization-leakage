@@ -1,3 +1,4 @@
+
 # How Much Do Shared Adapters Leak?
 ### Measuring Privacy Risks in Personalized Diffusion Model Weights
 **P13N@CVPR 2026 — Camera-Ready Reproducible Code Package**
@@ -263,3 +264,5 @@ All 10 validation categories:
 ## License
 
 MIT — for research purposes only.
+=======
+
