@@ -1,0 +1,31 @@
+# Textual Inversion training configuration — paper defaults
+# Used by:  python train_textual_inversion.py --config configs/ti_default.yaml
+
+# ── Base model ────────────────────────────────────────────────────────────────
+model_id:   "runwayml/stable-diffusion-v1-5"
+dtype:       "float16"
+
+# ── TI hyper-parameters ───────────────────────────────────────────────────────
+token_template:  "<sks_{subject_id}>"   # one token per subject
+num_vectors:     1                      # paper uses 1 embedding vector
+embedding_dim:   768                    # CLIP text encoder hidden dim
+init_text:       "person face"          # initialise from this word embedding
+init_noise_std:  0.01
+
+# ── Optimisation ──────────────────────────────────────────────────────────────
+num_epochs:    500              # TI needs more steps than LoRA
+learning_rate: 5.0e-4
+batch_size:    1
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+resolution:    512
+
+# ── Output ───────────────────────────────────────────────────────────────────
+output_dir: "./adapters_ti"
+
+# ── Device ───────────────────────────────────────────────────────────────────
+device: "cuda"
+
+# ── Privacy note ─────────────────────────────────────────────────────────────
+# TI trains only 768 parameters per subject vs LoRA r=16 which trains
+# ~12.6M parameters (540× more).  Yet TI leaks MORE — see paper Table 1.
