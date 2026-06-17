@@ -254,7 +254,9 @@ All 10 validation categories:
 @inproceedings{adapters_leak_2026,
   title     = {How Much Do Shared Adapters Leak? Measuring Privacy Risks
                in Personalized Diffusion Model Weights},
-  booktitle = {CVPR 2026 Workshop on Personalization (P13N)},
+  author={Hasan, Mujtaba},
+
+  booktitle = {CVPR 2026 Workshop on Personalization in Generative AI (P13N)},
   year      = {2026},
 }
 ```
